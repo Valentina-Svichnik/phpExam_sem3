@@ -14,74 +14,10 @@
       
         <!-- Подключаем Bootstrap JS -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <!-- </head> -->
-    <!-- <body> -->
-    <!-- <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        li {
-            list-style: none;
-            list-style-type: none;
-        }
-        header a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-evenly;
-            width: 100%;
-            height: 9rem;
-            background-color: #424874;
-            font-size: 1.7rem;
-            color: #fff;
-            z-index: 1;
-        }
-
-        header .header__menu {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            list-style-type: none;
-        }
-
-        .header__menu li {
-            margin-right: 3rem;
-        }
-
-        header h1 {
-            margin-top: 2rem;
-        }
-
-        #logo {
-            margin-left: 5rem;
-            justify-self: center;
-            /* position: absolute; */
-            padding: 1rem 3rem;
-            width: 7rem;
-            height: 7rem;
-            cursor: pointer;
-        }
-
-
-    </style> -->
+    
 </head>
 <body>
     
-    <!-- <header>
-        <img src="img/лого.jpg" alt="" id="logo">
-        <ul class="header__menu">
-            <li><a href="#">Главная</a></li>
-            <li><a href="#">Информация</a></li>
-            <li><a href="#">Контакты</a></li>
-        </ul>
-        
-    </header> -->
 
     <main style="display:flex;
                  flex-direction: column;
@@ -96,7 +32,7 @@
             
             <input type="number" name="num"  placeholder="Ответ в виде цифр" require style="margin-top: 10px;">
             <input type="number" name="plusNum" placeholder="Ответ в виде положит. цифр" pattern="[0-9]" require style="margin-top: 10px;">
-            <input type="text" name="strokaAnswer" placeholder="Ответ до 30 символов" require pattern="[A-Za-zА-Яа-яЁё]{1,30}" style="margin-top: 10px;">
+            <input type="text" name="strokaAnswer" placeholder="Ответ до 30 символов" require pattern="[A-Za-zА-Яа-яЁё]{1,30}" min="0" style="margin-top: 10px;">
             <input type="text" name="textAnswer" placeholder="Ответ до 255 символов" require pattern="[A-Za-zА-Яа-яЁё]{1,255}" style="margin-top: 10px;">
             <select name="onceAnsw" id="" style="margin-top: 10px;">
                 <option value="1">Да</option>
@@ -115,7 +51,6 @@
 
     <?php
         if (isset($_POST['button']) && $_POST['button'] == 'Ответить') {
-          // $link = mysqli_connect('localhost', 'root', '', 'expert');
            $link = mysqli_connect('std-mysql', 'std_938', 'qazwsxedc', 'std_938');
             $_SESSION['link'] = mysqli_connect('localhost', 'root', '', 'expert');
 
@@ -185,15 +120,6 @@
                     $mulresult = mysqli_query($link, $numres) or die("Ошибка " . mysqli_error($link));
                 }
 
-
-                
-                
-                // if ($_POST['onceAnsw'] == 1) {
-                //     $query .= 'UPDATE answers SET Баллы = "45" WHERE id="666;"';
-                // }
-                // if ($_POST['mulAnsw'] == 1 && $_POST['mulAnsw'] == 2) {
-                //     $query .= 'UPDATE answers SET Баллы = "55" WHERE id="333;"';
-                // } 
                 $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 
 
