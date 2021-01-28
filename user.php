@@ -40,9 +40,9 @@
                 <option value="3">Не знаю</option>
             </select>
             <select name="mulAnsw" id="" multiple style="margin-top: 20px;">
-                <option value="1">Россия</option>
-                <option value="2">Беларусь</option>
-                <option value="3">США</option>
+                <option value="1">вариант ответа 1</option>
+                <option value="2">вариант ответа 2</option>
+                <option value="3">вариант ответа 3</option>
             </select>
             <input type="submit" name="button" value="Ответить">
         </form>
@@ -52,7 +52,7 @@
     <?php
         if (isset($_POST['button']) && $_POST['button'] == 'Ответить') {
            $link = mysqli_connect('std-mysql', 'std_938', 'qazwsxedc', 'std_938');
-            $_SESSION['link'] = mysqli_connect('localhost', 'root', '', 'expert');
+            $_SESSION['link'] = mysqli_connect('std-mysql', 'std_938', 'qazwsxedc', 'std_938');
 
                 if(mysqli_connect_errno()) {
                     echo 'Ошибка подключения к БД: ' . mysqli_connect_error();
